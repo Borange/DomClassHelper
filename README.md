@@ -13,14 +13,10 @@ API
 **Example of use**
 
 ```
-
 var domClassHelper = require('dom-class-helper');
 
 // Find elements by class name.
-
 domClassHelper.findClass(document.body, 'menu-items', function(array){
-    if(array === null) return;
-
     array.forEach( function(element) {
         // Do something with the element.
         console.log(element);
