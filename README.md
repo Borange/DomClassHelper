@@ -7,7 +7,7 @@ Install via npm:
      $ npm install dom-class-helper --save
 
 
-API
+### API:
 
 * **addClass** requires a dom element and the class name. Returns true/false depending if the class was added.
 * **removeClass** requires a dom element and the class name. Returns true/false depending if the class was removed.
