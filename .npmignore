@@ -1,3 +1,4 @@
 /node_modules/
 /.idea/
 .babelrc
+npm-debug.log
