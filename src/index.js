@@ -47,28 +47,28 @@ const findClass = (element, className) => {
 };
 
 
-const DomClassHelper = {
+const domClassHelper = {
 
-    addClass: function(element, name) {
+    addClass: (element, name) => {
         return addClass(element, name);
     },
 
-    removeClass: function(element, name) {
+    removeClass: (element, name) => {
         return removeClass(element, name);
     },
 
-    hasClass: function(element, name) {
+    hasClass: (element, name) => {
         return hasClass(element, name);
     },
 
-    findClass: function(element, className) {
+    findClass: (element, className) => {
         return findClass(element, className);
     },
 
-    toggleClass: function(element, className) {
+    toggleClass: (element, className) => {
         return toggleClass(element, className);
     }
 
 }
 
-export { DomClassHelper };
+export { domClassHelper };
