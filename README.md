@@ -1,6 +1,11 @@
 # DomClassHelper
 
-A small library for manipulating DOM elements classes. 
+A small library for manipulating DOM element classes. Can be used to fetch, check, remove, add and toggle class names.
+
+Install via npm:
+
+     $ npm install dom-class-helper --save
+
 
 API
 
