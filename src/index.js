@@ -71,4 +71,4 @@ const domClassHelper = {
 
 }
 
-export { domClassHelper };
+export default domClassHelper;
