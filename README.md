@@ -23,7 +23,7 @@ API
 
 import domClassHelper from 'dom-class-helper';
 
-domClassHelper.findClass(document.body, elements => {
+domClassHelper.findClass(document.body, 'menu-items', elements => {
     elements.forEach(element => {
         // Do something with the element.
         console.log(element);
