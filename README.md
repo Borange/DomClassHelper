@@ -13,7 +13,7 @@ API
 **Example of use**
 
 ```
-var domClassHelper = require('dom-class-helper');
+var domClassHelper = require('dom-class-helper').domClassHelper;
 
 // Find elements by class name.
 domClassHelper.findClass(document.body, 'menu-items', function(array){
