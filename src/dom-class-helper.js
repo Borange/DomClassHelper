@@ -43,7 +43,9 @@ const toggleClass = (element, name) => {
 
 
 const findClass = (element, className) => {
-    return Array.from(element.parentNode.getElementsByClassName(className));
+    let currentArray = Array.from(element.getElementsByClassName(className));
+    if(!currentArray.length) currentArray = Array.from(element.parentNode.getElementsByClassName(className));
+    return currentArray;
 };
 
 
