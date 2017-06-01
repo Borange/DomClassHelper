@@ -43,6 +43,10 @@ describe('Dom helper remove and adding classes', () => {
         expect(domClassHelper.removeClass(div, 'box')).toBe('to-removed');
     });
 
+    it('can add multiple classes', () => {
+        expect(domClassHelper.addClass(div, 'one two')).toBe('one two');
+    });
+
     it('does not remov anything if class is not found', () => {
         div.className = "to-removed yes box";
         expect(domClassHelper.removeClass(div, 'hello')).toBe('to-removed yes box');
