@@ -25,6 +25,11 @@ describe('Dom helper remove and adding classes', () => {
         expect(domClassHelper.addClass(div, 'exist')).toBe('exist');
     });
 
+    it('should not duplicate class if the class already exists with multiple classes', () => {
+        div.className = "exist orange";
+        expect(domClassHelper.addClass(div, 'exist menu')).toBe('exist orange menu');
+    });
+
     it('should append class after already existing classes', () => {
         div.className = "exist";
         expect(domClassHelper.addClass(div, 'show')).toBe('exist show');
@@ -43,9 +48,24 @@ describe('Dom helper remove and adding classes', () => {
         expect(domClassHelper.removeClass(div, 'box')).toBe('to-removed orange');
     });
 
-    it('removes multiple classnames', () => {
+    it('removes multiple class names', () => {
         div.className = "to-removed yes box orange";
         expect(domClassHelper.removeClass(div, 'to-removed box')).toBe('yes orange');
+
+        div.className = "to-removed yes box orange";
+        expect(domClassHelper.removeClass(div, 'to-removed yes')).toBe('box orange');
+
+        div.className = "to-removed yes box orange";
+        expect(domClassHelper.removeClass(div, 'to-removed orange')).toBe('yes box');
+
+        div.className = "to-removed yes box orange";
+        expect(domClassHelper.removeClass(div, 'to-removed box yes')).toBe('orange');
+
+    });
+
+    it('removes multiple class names times 2', () => {
+        div.className = "to-removed yes box orange";
+        
     });
 
     it('can add multiple classes', () => {
