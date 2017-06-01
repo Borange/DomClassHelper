@@ -1,26 +1,46 @@
 
 
-const addClass = (element, name) => {
+const addClass = (element, names) => {
     let classNames = [];
+    const namesArray = names.split(' ');
     if(element.className.length > 0) {
         classNames = element.className.split(' ');
         for(let i = -1; ++i < classNames.length;) {
-            if(classNames[i] === name) return element.className;
+            for(let j = -1; ++j < namesArray.length;) {
+                if(classNames[i] === namesArray[j]) {
+                    namesArray.splice(j, 1);
+                    j--;
+                }
+            }
         }
     }
-    classNames.push(name);
-    element.className = classNames.join(' ');
+
+    element.className = classNames.concat(namesArray).join(' ');
+
     return element.className;
 }
 
-const removeClass = (element, name) => {
+const removeClass = (element, names) => {
     let classNames = element.className.split(' ');
     if(classNames.length === 0) return element.className;
+    
+    const namesArray = names.split(' ');
+    let removeIndex = -1;
+
     for(let i = -1; ++i < classNames.length;) {
-        if(classNames[i] === name) {
+        for(let j = -1; ++j < namesArray.length;) {
+            if(classNames[i] === namesArray[j]) {
+                removeIndex = i;
+                break;
+            }
+        }
+        if(removeIndex > -1) {
             classNames.splice(i, 1);
+            removeIndex = -1;
+            i--;
         }
     }
+
     element.className = classNames.join(' ');
     return element.className;
 }
