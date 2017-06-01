@@ -16,11 +16,16 @@ const addClass = (element, name) => {
 const removeClass = (element, name) => {
     let classNames = element.className.split(' ');
     if(classNames.length === 0) return element.className;
+    const names = name.split(' ');
+
     for(let i = -1; ++i < classNames.length;) {
-        if(classNames[i] === name) {
-            classNames.splice(i, 1);
+        for(let j = -1; ++j < names.length;) {
+            if(classNames[i] === names[j]) {
+                classNames.splice(i, 1);
+            }
         }
     }
+
     element.className = classNames.join(' ');
     return element.className;
 }

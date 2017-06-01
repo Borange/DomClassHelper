@@ -38,13 +38,23 @@ describe('Dom helper remove and adding classes', () => {
     });
 
     it('removes only class that it should', () => {
-        div.className = "to-removed yes box";
-        expect(domClassHelper.removeClass(div, 'yes')).toBe('to-removed box');
-        expect(domClassHelper.removeClass(div, 'box')).toBe('to-removed');
+        div.className = "to-removed yes box orange";
+        expect(domClassHelper.removeClass(div, 'yes')).toBe('to-removed box orange');
+        expect(domClassHelper.removeClass(div, 'box')).toBe('to-removed orange');
+    });
+
+    it('removes multiple classnames', () => {
+        div.className = "to-removed yes box orange";
+        expect(domClassHelper.removeClass(div, 'to-removed box')).toBe('yes orange');
     });
 
     it('can add multiple classes', () => {
         expect(domClassHelper.addClass(div, 'one two')).toBe('one two');
+    });
+
+    it('can remove multiple classes', () => {
+        domClassHelper.addClass(div, 'one two')
+        expect(domClassHelper.removeClass(div, 'one two')).toBe('');
     });
 
     it('does not remov anything if class is not found', () => {
