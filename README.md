@@ -18,29 +18,30 @@ Install via npm:
 **Example of use**
 
 ```
-
 // ES6
 
-import domClassHelper from 'dom-class-helper';
+import DomClassHelper from 'dom-class-helper';
 
-domClassHelper.findClass(document.body, 'menu-items', elements => {
-    elements.forEach(element => {
-        // Do something with the element.
-        console.log(element);
-    });
+const elements = DomClassHelper.findClass(document.body, 'menu-items');
+
+elements.forEach(element => {
+  // Do something with the element.
+  console.log(element);
 });
 
+```
 
+```
 // ES5, CommonJS
 
-var domClassHelper = require('dom-class-helper').default;
+var DomClassHelper = require('dom-class-helper').default;
 
 // Find elements by class name.
-domClassHelper.findClass(document.body, 'menu-items', function(array){
-    array.forEach( function(element) {
-        // Do something with the element.
-        console.log(element);
-    });
+var elements = DomClassHelper.findClass(document.body, 'menu-items');
+
+elements.forEach( function(element) {
+  // Do something with the element.
+  console.log(element);
 });
 
 ```
